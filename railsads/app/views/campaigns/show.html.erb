@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Campaign name:</strong>
+  <%= @campaign.campaign_name %>
+</p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @campaign.client_id %>
+</p>
+
+<p>
+  <strong>Revenue type:</strong>
+  <%= @campaign.revenue_type %>
+</p>
+
+<p>
+  <strong>Campaign start date:</strong>
+  <%= @campaign.campaign_start_date %>
+</p>
+
+<p>
+  <strong>Campaign end date:</strong>
+  <%= @campaign.campaign_end_date %>
+</p>
+
+<p>
+  <strong>Total target view:</strong>
+  <%= @campaign.total_target_view %>
+</p>
+
+<p>
+  <strong>Total target click:</strong>
+  <%= @campaign.total_target_click %>
+</p>
+
+<p>
+  <strong>Total target convertion:</strong>
+  <%= @campaign.total_target_convertion %>
+</p>
+
+<p>
+  <strong>User team cap:</strong>
+  <%= @campaign.user_team_cap %>
+</p>
+
+<p>
+  <strong>User team daily cap:</strong>
+  <%= @campaign.user_team_daily_cap %>
+</p>
+
+<p>
+  <strong>User hourly cap:</strong>
+  <%= @campaign.user_hourly_cap %>
+</p>
+
+<p>
+  <strong>User cap reset time:</strong>
+  <%= @campaign.user_cap_reset_time %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @campaign.comment %>
+</p>
+
+<%= link_to 'Edit', edit_campaign_path(@campaign) %> |
+<%= link_to 'Back', campaigns_path %>

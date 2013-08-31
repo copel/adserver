@@ -1,0 +1,45 @@
+<h1>Listing banners</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campaign</th>
+      <th>Width</th>
+      <th>Height</th>
+      <th>Banner type</th>
+      <th>File name</th>
+      <th>Format type</th>
+      <th>Image url</th>
+      <th>Click target</th>
+      <th>Html tag</th>
+      <th>Ad type</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @banners.each do |banner| %>
+      <tr>
+        <td><%= banner.campaign_id %></td>
+        <td><%= banner.width %></td>
+        <td><%= banner.height %></td>
+        <td><%= banner.banner_type %></td>
+        <td><%= banner.file_name %></td>
+        <td><%= banner.format_type %></td>
+        <td><%= banner.image_url %></td>
+        <td><%= banner.click_target %></td>
+        <td><%= banner.html_tag %></td>
+        <td><%= banner.ad_type %></td>
+        <td><%= link_to 'Show', banner %></td>
+        <td><%= link_to 'Edit', edit_banner_path(banner) %></td>
+        <td><%= link_to 'Destroy', banner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Banner', new_banner_path %>

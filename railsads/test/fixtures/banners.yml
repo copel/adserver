@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  campaign_id: 1
+  width: 1
+  height: 1
+  banner_type: 1
+  file_name: MyString
+  format_type: 1
+  image_url: MyString
+  click_target: MyString
+  html_tag: MyText
+  ad_type: 1
+
+two:
+  campaign_id: 1
+  width: 1
+  height: 1
+  banner_type: 1
+  file_name: MyString
+  format_type: 1
+  image_url: MyString
+  click_target: MyString
+  html_tag: MyText
+  ad_type: 1

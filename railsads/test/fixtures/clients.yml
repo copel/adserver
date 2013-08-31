@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  client_type: 1
+  client_name: MyString
+  contact: MyString
+  email: MyString
+  report: false
+  report_interval: 2013-08-12 15:44:46
+  report_deactive: false
+  comment: MyText
+
+two:
+  client_type: 1
+  client_name: MyString
+  contact: MyString
+  email: MyString
+  report: false
+  report_interval: 2013-08-12 15:44:46
+  report_deactive: false
+  comment: MyText

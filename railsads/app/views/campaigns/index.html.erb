@@ -1,0 +1,51 @@
+<h1>Listing campaigns</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campaign name</th>
+      <th>Client</th>
+      <th>Revenue type</th>
+      <th>Campaign start date</th>
+      <th>Campaign end date</th>
+      <th>Total target view</th>
+      <th>Total target click</th>
+      <th>Total target convertion</th>
+      <th>User team cap</th>
+      <th>User team daily cap</th>
+      <th>User hourly cap</th>
+      <th>User cap reset time</th>
+      <th>Comment</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @campaigns.each do |campaign| %>
+      <tr>
+        <td><%= campaign.campaign_name %></td>
+        <td><%= campaign.client_id %></td>
+        <td><%= campaign.revenue_type %></td>
+        <td><%= campaign.campaign_start_date %></td>
+        <td><%= campaign.campaign_end_date %></td>
+        <td><%= campaign.total_target_view %></td>
+        <td><%= campaign.total_target_click %></td>
+        <td><%= campaign.total_target_convertion %></td>
+        <td><%= campaign.user_team_cap %></td>
+        <td><%= campaign.user_team_daily_cap %></td>
+        <td><%= campaign.user_hourly_cap %></td>
+        <td><%= campaign.user_cap_reset_time %></td>
+        <td><%= campaign.comment %></td>
+        <td><%= link_to 'Show', campaign %></td>
+        <td><%= link_to 'Edit', edit_campaign_path(campaign) %></td>
+        <td><%= link_to 'Destroy', campaign, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Campaign', new_campaign_path %>

@@ -1,0 +1,2069 @@
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateClients (20130812064446)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "clients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_type" integer, "client_name" varchar(255), "contact" varchar(255), "email" varchar(255), "report" boolean, "report_interval" datetime, "report_deactive" boolean, "comment" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130812064446"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.2ms)[0m  INSERT INTO "clients" ("client_name", "client_type", "comment", "contact", "created_at", "email", "report", "report_deactive", "report_interval", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["client_name", "first client"], ["client_type", 1], ["comment", "yes"], ["contact", "yusuke"], ["created_at", Mon, 12 Aug 2013 06:49:00 UTC +00:00], ["email", "yusukedotcom@gmail"], ["report", true], ["report_deactive", false], ["report_interval", Thu, 08 Aug 2013 00:00:00 UTC +00:00], ["updated_at", Mon, 12 Aug 2013 06:49:00 UTC +00:00]]
+  [1m[36m (3.6ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/users/2/edit" for 127.0.0.1 at 2013-08-12 15:49:53 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActionController::RoutingError (No route matches [GET] "/users/2/edit"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.5ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.8ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (42.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-08-12 15:50:01 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (0.9ms)
+Completed 200 OK in 31ms (Views: 4.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/clients" for 127.0.0.1 at 2013-08-12 15:50:06 +0900
+Processing by ClientsController#index as HTML
+  [1m[35mClient Load (0.3ms)[0m  SELECT "clients".* FROM "clients"
+  Rendered clients/index.html.erb within layouts/application (39.2ms)
+Completed 200 OK in 816ms (Views: 812.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-12 15:50:07 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-12 15:50:07 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-12 15:50:07 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-12 15:50:07 +0900
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-12 15:50:07 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-12 15:50:07 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-12 15:50:07 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-12 15:50:07 +0900
+
+
+Started GET "/clients/1" for 127.0.0.1 at 2013-08-12 15:50:12 +0900
+Processing by ClientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClient Load (0.4ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered clients/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 11ms (Views: 7.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/clients" for 127.0.0.1 at 2013-08-12 15:50:16 +0900
+Processing by ClientsController#index as HTML
+  [1m[35mClient Load (0.3ms)[0m  SELECT "clients".* FROM "clients"
+  Rendered clients/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/clients/1/edit" for 127.0.0.1 at 2013-08-12 15:50:18 +0900
+Processing by ClientsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered clients/_form.html.erb (66.0ms)
+  Rendered clients/edit.html.erb within layouts/application (68.4ms)
+Completed 200 OK in 76ms (Views: 73.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/clients/1" for 127.0.0.1 at 2013-08-12 15:50:23 +0900
+Processing by ClientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered clients/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 8ms (Views: 6.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/clients" for 127.0.0.1 at 2013-08-12 15:50:27 +0900
+Processing by ClientsController#index as HTML
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients"[0m
+  Rendered clients/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/clients/new" for 127.0.0.1 at 2013-08-12 15:50:30 +0900
+Processing by ClientsController#new as HTML
+  Rendered clients/_form.html.erb (10.5ms)
+  Rendered clients/new.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/clients" for 127.0.0.1 at 2013-08-12 15:50:46 +0900
+Processing by ClientsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dMwt43TBqJDU55dTdlxuYwDWQ5Fq86mruFbOpH3Oxws=", "client"=>{"client_type"=>"2", "client_name"=>"imura", "contact"=>"imura", "email"=>"o", "report"=>"0", "report_interval(1i)"=>"2013", "report_interval(2i)"=>"8", "report_interval(3i)"=>"12", "report_interval(4i)"=>"06", "report_interval(5i)"=>"50", "report_deactive"=>"0", "comment"=>"imura"}, "commit"=>"Create Client"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (3.1ms)[0m  [1mINSERT INTO "clients" ("client_name", "client_type", "comment", "contact", "created_at", "email", "report", "report_deactive", "report_interval", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_name", "imura"], ["client_type", 2], ["comment", "imura"], ["contact", "imura"], ["created_at", Mon, 12 Aug 2013 06:50:46 UTC +00:00], ["email", "o"], ["report", false], ["report_deactive", false], ["report_interval", Mon, 12 Aug 2013 06:50:00 UTC +00:00], ["updated_at", Mon, 12 Aug 2013 06:50:46 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/clients/2
+Completed 302 Found in 15ms (ActiveRecord: 4.4ms)
+
+
+Started GET "/clients/2" for 127.0.0.1 at 2013-08-12 15:50:46 +0900
+Processing by ClientsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  Rendered clients/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 10ms (Views: 7.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-12 15:50:46 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-12 15:50:46 +0900
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-12 15:50:46 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-12 15:50:46 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-12 15:50:46 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-12 15:50:46 +0900
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-12 15:50:46 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-12 15:50:46 +0900
+
+
+Started GET "/clients" for 127.0.0.1 at 2013-08-12 15:50:49 +0900
+Processing by ClientsController#index as HTML
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients".* FROM "clients"
+  Rendered clients/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePublishers (20130812065339)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "publishers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "publisher_name" varchar(255), "website" varchar(255), "email" varchar(255), "contact" varchar(255), "publisher_type" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130812065339"]]
+  [1m[36m (2.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.2ms)[0m  INSERT INTO "publishers" ("contact", "created_at", "email", "publisher_name", "publisher_type", "updated_at", "website") VALUES (?, ?, ?, ?, ?, ?, ?)  [["contact", "hoge"], ["created_at", Mon, 12 Aug 2013 06:57:03 UTC +00:00], ["email", "yusukedotcom@gmail"], ["publisher_name", "first publisher"], ["publisher_type", 1], ["updated_at", Mon, 12 Aug 2013 06:57:03 UTC +00:00], ["website", "tory.com"]]
+  [1m[36m (3.6ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/clients" for 127.0.0.1 at 2013-08-12 15:57:51 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ClientsController#index as HTML
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients".* FROM "clients"
+  Rendered clients/index.html.erb within layouts/application (54.3ms)
+Completed 200 OK in 384ms (Views: 355.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/publishers.css?body=1" for 127.0.0.1 at 2013-08-12 15:57:51 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-12 15:57:51 +0900
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-12 15:57:51 +0900
+
+
+Started GET "/assets/publishers.js?body=1" for 127.0.0.1 at 2013-08-12 15:57:51 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-12 15:57:51 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-12 15:57:52 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-12 15:57:52 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-12 15:57:52 +0900
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-12 15:57:52 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-12 15:57:52 +0900
+
+
+Started GET "/" for 127.0.0.1 at 2013-08-12 15:57:56 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (1.0ms)
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/publishers" for 127.0.0.1 at 2013-08-12 15:58:05 +0900
+Processing by PublishersController#index as HTML
+  [1m[36mPublisher Load (0.1ms)[0m  [1mSELECT "publishers".* FROM "publishers"[0m
+  Rendered publishers/index.html.erb within layouts/application (28.0ms)
+Completed 200 OK in 39ms (Views: 33.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-12 15:58:05 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-12 15:58:05 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-12 15:58:05 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-12 15:58:05 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-12 15:58:05 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-12 15:58:05 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-12 15:58:05 +0900
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-12 15:58:05 +0900
+
+
+Started GET "/publishers/new" for 127.0.0.1 at 2013-08-12 15:58:07 +0900
+Processing by PublishersController#new as HTML
+  Rendered publishers/_form.html.erb (16.8ms)
+  Rendered publishers/new.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 27ms (Views: 26.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/publishers" for 127.0.0.1 at 2013-08-12 15:58:25 +0900
+Processing by PublishersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dMwt43TBqJDU55dTdlxuYwDWQ5Fq86mruFbOpH3Oxws=", "publisher"=>{"publisher_name"=>"second pub", "website"=>"yahoo.co.jo", "email"=>"ho", "contact"=>"fafa", "publisher_type"=>"3"}, "commit"=>"Create Publisher"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.7ms)[0m  [1mINSERT INTO "publishers" ("contact", "created_at", "email", "publisher_name", "publisher_type", "updated_at", "website") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["contact", "fafa"], ["created_at", Mon, 12 Aug 2013 06:58:25 UTC +00:00], ["email", "ho"], ["publisher_name", "second pub"], ["publisher_type", 3], ["updated_at", Mon, 12 Aug 2013 06:58:25 UTC +00:00], ["website", "yahoo.co.jo"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/publishers/2
+Completed 302 Found in 10ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/publishers/2" for 127.0.0.1 at 2013-08-12 15:58:25 +0900
+Processing by PublishersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPublisher Load (0.2ms)[0m  [1mSELECT "publishers".* FROM "publishers" WHERE "publishers"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  Rendered publishers/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 10ms (Views: 7.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-12 15:58:25 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-12 15:58:25 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-12 15:58:25 +0900
+
+
+Started GET "/assets/publishers.css?body=1" for 127.0.0.1 at 2013-08-12 15:58:25 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-12 15:58:25 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-12 15:58:25 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-12 15:58:25 +0900
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-12 15:58:25 +0900
+
+
+Started GET "/assets/publishers.js?body=1" for 127.0.0.1 at 2013-08-12 15:58:25 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-12 15:58:25 +0900
+
+
+Started GET "/publishers" for 127.0.0.1 at 2013-08-12 15:58:28 +0900
+Processing by PublishersController#index as HTML
+  [1m[35mPublisher Load (0.2ms)[0m  SELECT "publishers".* FROM "publishers"
+  Rendered publishers/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/publishers/2" for 127.0.0.1 at 2013-08-12 15:58:32 +0900
+Processing by PublishersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPublisher Load (0.2ms)[0m  [1mSELECT "publishers".* FROM "publishers" WHERE "publishers"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  Rendered publishers/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/publishers" for 127.0.0.1 at 2013-08-12 15:58:34 +0900
+Processing by PublishersController#index as HTML
+  [1m[35mPublisher Load (0.3ms)[0m  SELECT "publishers".* FROM "publishers"
+  Rendered publishers/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.3ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCampaigns (20130812093114)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCampaigns (20130812093114)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCampaigns (20130812093114)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "campaigns" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "campaign_name" varchar(255), "client_id" integer, "revenue_type" integer, "campaign_start_date" datetime, "campaign_end_date" datetime, "total_target_view" integer, "total_target_click" integer, "total_target_convertion" integer, "user_team_cap" integer, "user_team_daily_cap" integer, "user_hourly_cap" integer, "user_cap_reset_time" integer, "comment" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130812093114"]]
+  [1m[36m (7.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2013-08-12 18:34:14 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (1.8ms)
+Completed 200 OK in 38ms (Views: 9.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-08-12 18:34:15 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (1.2ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/campaigns" for 127.0.0.1 at 2013-08-12 18:34:20 +0900
+Processing by CampaignsController#index as HTML
+  [1m[35mCampaign Load (0.1ms)[0m  SELECT "campaigns".* FROM "campaigns"
+  Rendered campaigns/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 353ms (Views: 349.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-12 18:34:21 +0900
+
+
+Started GET "/assets/campaigns.css?body=1" for 127.0.0.1 at 2013-08-12 18:34:21 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-12 18:34:21 +0900
+
+
+Started GET "/assets/publishers.css?body=1" for 127.0.0.1 at 2013-08-12 18:34:21 +0900
+
+
+Started GET "/assets/campaigns.js?body=1" for 127.0.0.1 at 2013-08-12 18:34:21 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-12 18:34:21 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-12 18:34:21 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-12 18:34:21 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-12 18:34:21 +0900
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-12 18:34:21 +0900
+
+
+Started GET "/assets/publishers.js?body=1" for 127.0.0.1 at 2013-08-12 18:34:21 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-12 18:34:21 +0900
+
+
+Started GET "/campaigns/new" for 127.0.0.1 at 2013-08-12 18:34:23 +0900
+Processing by CampaignsController#new as HTML
+  Rendered campaigns/_form.html.erb (117.9ms)
+  Rendered campaigns/new.html.erb within layouts/application (122.0ms)
+Completed 200 OK in 130ms (Views: 128.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/campaigns" for 127.0.0.1 at 2013-08-12 18:35:07 +0900
+Processing by CampaignsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dMwt43TBqJDU55dTdlxuYwDWQ5Fq86mruFbOpH3Oxws=", "campaign"=>{"campaign_name"=>"first camp", "client_id"=>"ohtori", "revenue_type"=>"1", "campaign_start_date(1i)"=>"2013", "campaign_start_date(2i)"=>"8", "campaign_start_date(3i)"=>"12", "campaign_start_date(4i)"=>"09", "campaign_start_date(5i)"=>"34", "campaign_end_date(1i)"=>"2013", "campaign_end_date(2i)"=>"12", "campaign_end_date(3i)"=>"12", "campaign_end_date(4i)"=>"14", "campaign_end_date(5i)"=>"34", "total_target_view"=>"90000", "total_target_click"=>"800", "total_target_convertion"=>"90", "user_team_cap"=>"899", "user_team_daily_cap"=>"899", "user_hourly_cap"=>"33", "user_cap_reset_time"=>"7000", "comment"=>"yes"}, "commit"=>"Create Campaign"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.8ms)[0m  INSERT INTO "campaigns" ("campaign_end_date", "campaign_name", "campaign_start_date", "client_id", "comment", "created_at", "revenue_type", "total_target_click", "total_target_convertion", "total_target_view", "updated_at", "user_cap_reset_time", "user_hourly_cap", "user_team_cap", "user_team_daily_cap") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["campaign_end_date", Thu, 12 Dec 2013 14:34:00 UTC +00:00], ["campaign_name", "first camp"], ["campaign_start_date", Mon, 12 Aug 2013 09:34:00 UTC +00:00], ["client_id", 0], ["comment", "yes"], ["created_at", Mon, 12 Aug 2013 09:35:08 UTC +00:00], ["revenue_type", 1], ["total_target_click", 800], ["total_target_convertion", 90], ["total_target_view", 90000], ["updated_at", Mon, 12 Aug 2013 09:35:08 UTC +00:00], ["user_cap_reset_time", 7000], ["user_hourly_cap", 33], ["user_team_cap", 899], ["user_team_daily_cap", 899]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/campaigns/1
+Completed 302 Found in 18ms (ActiveRecord: 5.3ms)
+
+
+Started GET "/campaigns/1" for 127.0.0.1 at 2013-08-12 18:35:08 +0900
+Processing by CampaignsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCampaign Load (0.4ms)[0m  SELECT "campaigns".* FROM "campaigns" WHERE "campaigns"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered campaigns/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 17ms (Views: 11.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-12 18:35:08 +0900
+
+
+Started GET "/assets/campaigns.css?body=1" for 127.0.0.1 at 2013-08-12 18:35:08 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-12 18:35:08 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-12 18:35:08 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-12 18:35:08 +0900
+
+
+Started GET "/assets/publishers.css?body=1" for 127.0.0.1 at 2013-08-12 18:35:08 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-12 18:35:08 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-12 18:35:08 +0900
+
+
+Started GET "/assets/campaigns.js?body=1" for 127.0.0.1 at 2013-08-12 18:35:08 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-12 18:35:08 +0900
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-12 18:35:08 +0900
+
+
+Started GET "/assets/publishers.js?body=1" for 127.0.0.1 at 2013-08-12 18:35:08 +0900
+
+
+Started GET "/campaigns" for 127.0.0.1 at 2013-08-12 18:35:10 +0900
+Processing by CampaignsController#index as HTML
+  [1m[36mCampaign Load (0.3ms)[0m  [1mSELECT "campaigns".* FROM "campaigns"[0m
+  Rendered campaigns/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.3ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateBanners (20130812094049)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "banners" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "campaign_id" integer, "width" integer, "height" integer, "banner_type" integer, "file_name" varchar(255), "format_type" integer, "image_url" varchar(255), "click_target" varchar(255), "html_tag" text, "ad_type" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130812094049"]]
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/campaigns" for 127.0.0.1 at 2013-08-12 18:41:39 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CampaignsController#index as HTML
+  [1m[35mCampaign Load (0.3ms)[0m  SELECT "campaigns".* FROM "campaigns"
+  Rendered campaigns/index.html.erb within layouts/application (54.5ms)
+Completed 200 OK in 420ms (Views: 393.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-12 18:41:40 +0900
+
+
+Started GET "/assets/banners.css?body=1" for 127.0.0.1 at 2013-08-12 18:41:40 +0900
+
+
+Started GET "/assets/banners.js?body=1" for 127.0.0.1 at 2013-08-12 18:41:40 +0900
+
+
+Started GET "/assets/campaigns.css?body=1" for 127.0.0.1 at 2013-08-12 18:41:40 +0900
+
+
+Started GET "/assets/publishers.css?body=1" for 127.0.0.1 at 2013-08-12 18:41:40 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-12 18:41:40 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-12 18:41:40 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-12 18:41:40 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-12 18:41:40 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-12 18:41:40 +0900
+
+
+Started GET "/assets/campaigns.js?body=1" for 127.0.0.1 at 2013-08-12 18:41:40 +0900
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-12 18:41:40 +0900
+
+
+Started GET "/assets/publishers.js?body=1" for 127.0.0.1 at 2013-08-12 18:41:40 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-12 18:41:40 +0900
+
+
+Started GET "/banners" for 127.0.0.1 at 2013-08-12 18:42:15 +0900
+Processing by BannersController#index as HTML
+  [1m[36mBanner Load (0.2ms)[0m  [1mSELECT "banners".* FROM "banners"[0m
+  Rendered banners/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 17ms (Views: 12.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-12 18:42:15 +0900
+
+
+Started GET "/assets/campaigns.css?body=1" for 127.0.0.1 at 2013-08-12 18:42:15 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-12 18:42:15 +0900
+
+
+Started GET "/assets/banners.css?body=1" for 127.0.0.1 at 2013-08-12 18:42:15 +0900
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-12 18:42:15 +0900
+
+
+Started GET "/assets/publishers.css?body=1" for 127.0.0.1 at 2013-08-12 18:42:15 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-12 18:42:15 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-12 18:42:15 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-12 18:42:15 +0900
+
+
+Started GET "/assets/banners.js?body=1" for 127.0.0.1 at 2013-08-12 18:42:15 +0900
+
+
+Started GET "/assets/campaigns.js?body=1" for 127.0.0.1 at 2013-08-12 18:42:15 +0900
+
+
+Started GET "/assets/publishers.js?body=1" for 127.0.0.1 at 2013-08-12 18:42:15 +0900
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-12 18:42:15 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-12 18:42:15 +0900
+
+
+Started GET "/banners/new" for 127.0.0.1 at 2013-08-12 18:42:17 +0900
+Processing by BannersController#new as HTML
+  Rendered banners/_form.html.erb (91.2ms)
+  Rendered banners/new.html.erb within layouts/application (95.0ms)
+Completed 200 OK in 103ms (Views: 101.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/banners/new" for 127.0.0.1 at 2013-08-12 19:51:36 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BannersController#new as HTML
+  Rendered banners/new.html.erb within layouts/application (47.5ms)
+Completed 500 Internal Server Error in 88ms
+
+ActionView::Template::Error (undefined method `banner' for #<Banner:0x007fd8432ce070>):
+    2: 
+    3: <%= form_for(@banner) do |f| %>
+    4:     
+    5:     <%= f.check_box 'banner', {}, true, false %>
+    6: 
+    7: 
+    8: <% end %>
+  app/views/banners/new.html.erb:5:in `block in _app_views_banners_new_html_erb___1455112652044012790_70283408768460'
+  app/views/banners/new.html.erb:3:in `_app_views_banners_new_html_erb___1455112652044012790_70283408768460'
+
+
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.6ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (23.2ms)
+
+
+Started GET "/banners/new" for 127.0.0.1 at 2013-08-12 19:54:28 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BannersController#new as HTML
+  Rendered banners/new.html.erb within layouts/application (47.9ms)
+Completed 200 OK in 183ms (Views: 155.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-12 19:54:29 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-12 19:54:29 +0900
+
+
+Started GET "/assets/campaigns.css?body=1" for 127.0.0.1 at 2013-08-12 19:54:29 +0900
+
+
+Started GET "/assets/banners.css?body=1" for 127.0.0.1 at 2013-08-12 19:54:29 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-12 19:54:29 +0900
+
+
+Started GET "/assets/publishers.css?body=1" for 127.0.0.1 at 2013-08-12 19:54:29 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-12 19:54:29 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-12 19:54:29 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-12 19:54:29 +0900
+
+
+Started GET "/assets/banners.js?body=1" for 127.0.0.1 at 2013-08-12 19:54:29 +0900
+
+
+Started GET "/assets/campaigns.js?body=1" for 127.0.0.1 at 2013-08-12 19:54:29 +0900
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-12 19:54:29 +0900
+
+
+Started GET "/assets/publishers.js?body=1" for 127.0.0.1 at 2013-08-12 19:54:29 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-12 19:54:29 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to Clients (20130813014429)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mCREATE TEMPORARY TABLE "aclients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_id" integer NOT NULL, "client_type" integer, "client_name" varchar(255), "contact" varchar(255), "email" varchar(255), "report" boolean, "report_interval" datetime, "report_deactive" boolean, "comment" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.2ms)[0m  SELECT * FROM "clients"
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "aclients" ("id","client_id","client_type","client_name","contact","email","report","report_interval","report_deactive","comment","created_at","updated_at") VALUES (1, 1, 1, 'first client', 'yusuke', 'yusukedotcom@gmail', 't', '2013-08-08 00:00:00.000000', 'f', 'yes', '2013-08-12 06:49:00.341640', '2013-08-12 06:49:00.341640')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aclients" ("id","client_id","client_type","client_name","contact","email","report","report_interval","report_deactive","comment","created_at","updated_at") VALUES (2, 2, 2, 'imura', 'imura', 'o', 'f', '2013-08-12 06:50:00.000000', 'f', 'imura', '2013-08-12 06:50:46.365606', '2013-08-12 06:50:46.365606')
+  [1m[36m (0.4ms)[0m  [1mDROP TABLE "clients"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "clients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_id" integer NOT NULL, "client_type" integer, "client_name" varchar(255), "contact" varchar(255), "email" varchar(255), "report" boolean, "report_interval" datetime, "report_deactive" boolean, "comment" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "aclients"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "clients" ("id","client_id","client_type","client_name","contact","email","report","report_interval","report_deactive","comment","created_at","updated_at") VALUES (1, 1, 1, 'first client', 'yusuke', 'yusukedotcom@gmail', 't', '2013-08-08 00:00:00.000000', 'f', 'yes', '2013-08-12 06:49:00.341640', '2013-08-12 06:49:00.341640')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "clients" ("id","client_id","client_type","client_name","contact","email","report","report_interval","report_deactive","comment","created_at","updated_at") VALUES (2, 2, 2, 'imura', 'imura', 'o', 'f', '2013-08-12 06:50:00.000000', 'f', 'imura', '2013-08-12 06:50:46.365606', '2013-08-12 06:50:46.365606')[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "aclients"
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20130813014429"]]
+  [1m[35m (5.5ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to Publishers (20130813015213)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TEMPORARY TABLE "aPublishers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "publisher_id" integer NOT NULL, "publisher_name" varchar(255), "website" varchar(255), "email" varchar(255), "contact" varchar(255), "publisher_type" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "Publishers"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aPublishers" ("id","publisher_id","publisher_name","website","email","contact","publisher_type","created_at","updated_at") VALUES (1, 1, 'first publisher', 'tory.com', 'yusukedotcom@gmail', 'hoge', 1, '2013-08-12 06:57:03.886054', '2013-08-12 06:57:03.886054')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aPublishers" ("id","publisher_id","publisher_name","website","email","contact","publisher_type","created_at","updated_at") VALUES (2, 2, 'second pub', 'yahoo.co.jo', 'ho', 'fafa', 3, '2013-08-12 06:58:25.806834', '2013-08-12 06:58:25.806834')
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "Publishers"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "Publishers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "publisher_id" integer NOT NULL, "publisher_name" varchar(255), "website" varchar(255), "email" varchar(255), "contact" varchar(255), "publisher_type" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "aPublishers"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "Publishers" ("id","publisher_id","publisher_name","website","email","contact","publisher_type","created_at","updated_at") VALUES (1, 1, 'first publisher', 'tory.com', 'yusukedotcom@gmail', 'hoge', 1, '2013-08-12 06:57:03.886054', '2013-08-12 06:57:03.886054')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "Publishers" ("id","publisher_id","publisher_name","website","email","contact","publisher_type","created_at","updated_at") VALUES (2, 2, 'second pub', 'yahoo.co.jo', 'ho', 'fafa', 3, '2013-08-12 06:58:25.806834', '2013-08-12 06:58:25.806834')[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "aPublishers"
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20130813015213"]]
+  [1m[35m (2.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RemoveColumnFromClients (20130813020408)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TEMPORARY TABLE "aclients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_id" integer NOT NULL, "client_type" integer, "client_name" varchar(255), "contact" varchar(255), "email" varchar(255), "report" boolean, "report_interval" datetime, "report_deactive" boolean, "comment" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "clients"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aclients" ("id","client_id","client_type","client_name","contact","email","report","report_interval","report_deactive","comment","created_at","updated_at") VALUES (1, 1, 1, 'first client', 'yusuke', 'yusukedotcom@gmail', 't', '2013-08-08 00:00:00.000000', 'f', 'yes', '2013-08-12 06:49:00.341640', '2013-08-12 06:49:00.341640')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aclients" ("id","client_id","client_type","client_name","contact","email","report","report_interval","report_deactive","comment","created_at","updated_at") VALUES (2, 2, 2, 'imura', 'imura', 'o', 'f', '2013-08-12 06:50:00.000000', 'f', 'imura', '2013-08-12 06:50:46.365606', '2013-08-12 06:50:46.365606')
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "clients"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "clients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_type" integer, "client_name" varchar(255), "contact" varchar(255), "email" varchar(255), "report" boolean, "report_interval" datetime, "report_deactive" boolean, "comment" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "aclients"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "clients" ("id","client_type","client_name","contact","email","report","report_interval","report_deactive","comment","created_at","updated_at") VALUES (1, 1, 'first client', 'yusuke', 'yusukedotcom@gmail', 't', '2013-08-08 00:00:00.000000', 'f', 'yes', '2013-08-12 06:49:00.341640', '2013-08-12 06:49:00.341640')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "clients" ("id","client_type","client_name","contact","email","report","report_interval","report_deactive","comment","created_at","updated_at") VALUES (2, 2, 'imura', 'imura', 'o', 'f', '2013-08-12 06:50:00.000000', 'f', 'imura', '2013-08-12 06:50:46.365606', '2013-08-12 06:50:46.365606')[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "aclients"
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20130813020408"]]
+  [1m[35m (2.8ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RemoveColumnFromPublishers (20130813020511)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TEMPORARY TABLE "apublishers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "publisher_id" integer NOT NULL, "publisher_name" varchar(255), "website" varchar(255), "email" varchar(255), "contact" varchar(255), "publisher_type" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "publishers"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "apublishers" ("id","publisher_id","publisher_name","website","email","contact","publisher_type","created_at","updated_at") VALUES (1, 1, 'first publisher', 'tory.com', 'yusukedotcom@gmail', 'hoge', 1, '2013-08-12 06:57:03.886054', '2013-08-12 06:57:03.886054')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "apublishers" ("id","publisher_id","publisher_name","website","email","contact","publisher_type","created_at","updated_at") VALUES (2, 2, 'second pub', 'yahoo.co.jo', 'ho', 'fafa', 3, '2013-08-12 06:58:25.806834', '2013-08-12 06:58:25.806834')
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "publishers"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "publishers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "publisher_name" varchar(255), "website" varchar(255), "email" varchar(255), "contact" varchar(255), "publisher_type" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "apublishers"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "publishers" ("id","publisher_name","website","email","contact","publisher_type","created_at","updated_at") VALUES (1, 'first publisher', 'tory.com', 'yusukedotcom@gmail', 'hoge', 1, '2013-08-12 06:57:03.886054', '2013-08-12 06:57:03.886054')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "publishers" ("id","publisher_name","website","email","contact","publisher_type","created_at","updated_at") VALUES (2, 'second pub', 'yahoo.co.jo', 'ho', 'fafa', 3, '2013-08-12 06:58:25.806834', '2013-08-12 06:58:25.806834')[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "apublishers"
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20130813020511"]]
+  [1m[35m (2.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RenameColumnFromPublishers (20130813020646)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TEMPORARY TABLE "apublishers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "publisher_id" integer NOT NULL, "publisher_name" varchar(255), "website" varchar(255), "email" varchar(255), "contact" varchar(255), "publisher_type" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "publishers"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "apublishers" ("id","publisher_id","publisher_name","website","email","contact","publisher_type","created_at","updated_at") VALUES (1, 1, 'first publisher', 'tory.com', 'yusukedotcom@gmail', 'hoge', 1, '2013-08-12 06:57:03.886054', '2013-08-12 06:57:03.886054')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "apublishers" ("id","publisher_id","publisher_name","website","email","contact","publisher_type","created_at","updated_at") VALUES (2, 2, 'second pub', 'yahoo.co.jo', 'ho', 'fafa', 3, '2013-08-12 06:58:25.806834', '2013-08-12 06:58:25.806834')
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "publishers"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "publishers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "publisher_id" integer NOT NULL, "publisher_name" varchar(255), "website" varchar(255), "email" varchar(255), "contact" varchar(255), "publisher_type" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "apublishers"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "publishers" ("id","publisher_id","publisher_name","website","email","contact","publisher_type","created_at","updated_at") VALUES (1, 1, 'first publisher', 'tory.com', 'yusukedotcom@gmail', 'hoge', 1, '2013-08-12 06:57:03.886054', '2013-08-12 06:57:03.886054')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "publishers" ("id","publisher_id","publisher_name","website","email","contact","publisher_type","created_at","updated_at") VALUES (2, 2, 'second pub', 'yahoo.co.jo', 'ho', 'fafa', 3, '2013-08-12 06:58:25.806834', '2013-08-12 06:58:25.806834')[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "apublishers"
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20130813020646"]]
+  [1m[35m (2.8ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to Publisher (20130813021128)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RemoveColumnFromPublishers (20130813021352)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TEMPORARY TABLE "apublishers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "publisher_id" integer NOT NULL, "publisher_name" varchar(255), "website" varchar(255), "email" varchar(255), "contact" varchar(255), "publisher_type" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "publishers"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "apublishers" ("id","publisher_id","publisher_name","website","email","contact","publisher_type","created_at","updated_at") VALUES (1, 1, 'first publisher', 'tory.com', 'yusukedotcom@gmail', 'hoge', 1, '2013-08-12 06:57:03.886054', '2013-08-12 06:57:03.886054')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "apublishers" ("id","publisher_id","publisher_name","website","email","contact","publisher_type","created_at","updated_at") VALUES (2, 2, 'second pub', 'yahoo.co.jo', 'ho', 'fafa', 3, '2013-08-12 06:58:25.806834', '2013-08-12 06:58:25.806834')
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "publishers"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "publishers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "publisher_name" varchar(255), "website" varchar(255), "email" varchar(255), "contact" varchar(255), "publisher_type" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "apublishers"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "publishers" ("id","publisher_name","website","email","contact","publisher_type","created_at","updated_at") VALUES (1, 'first publisher', 'tory.com', 'yusukedotcom@gmail', 'hoge', 1, '2013-08-12 06:57:03.886054', '2013-08-12 06:57:03.886054')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "publishers" ("id","publisher_name","website","email","contact","publisher_type","created_at","updated_at") VALUES (2, 'second pub', 'yahoo.co.jo', 'ho', 'fafa', 3, '2013-08-12 06:58:25.806834', '2013-08-12 06:58:25.806834')[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "apublishers"
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20130813021352"]]
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2013-08-13 11:27:39 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (3.5ms)
+Completed 200 OK in 38ms (Views: 13.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2013-08-13 11:27:39 +0900
+
+ActionController::RoutingError (No route matches [GET] "/users/new"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.5ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (6.6ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (55.7ms)
+
+
+Started GET "/banners" for 127.0.0.1 at 2013-08-13 11:27:44 +0900
+Processing by BannersController#index as HTML
+  [1m[35mBanner Load (0.1ms)[0m  SELECT "banners".* FROM "banners"
+  Rendered banners/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 106ms (Views: 102.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-13 11:27:44 +0900
+
+
+Started GET "/assets/publishers.css?body=1" for 127.0.0.1 at 2013-08-13 11:27:44 +0900
+
+
+Started GET "/assets/banners.css?body=1" for 127.0.0.1 at 2013-08-13 11:27:44 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-13 11:27:44 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-13 11:27:44 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-13 11:27:44 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-13 11:27:44 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-13 11:27:44 +0900
+
+
+Started GET "/assets/campaigns.css?body=1" for 127.0.0.1 at 2013-08-13 11:27:44 +0900
+
+
+Started GET "/assets/banners.js?body=1" for 127.0.0.1 at 2013-08-13 11:27:44 +0900
+
+
+Started GET "/assets/campaigns.js?body=1" for 127.0.0.1 at 2013-08-13 11:27:44 +0900
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-13 11:27:44 +0900
+
+
+Started GET "/assets/publishers.js?body=1" for 127.0.0.1 at 2013-08-13 11:27:44 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-13 11:27:44 +0900
+
+
+Started GET "/banners/new" for 127.0.0.1 at 2013-08-13 11:27:48 +0900
+Processing by BannersController#new as HTML
+  Rendered banners/new.html.erb within layouts/application (38.3ms)
+Completed 500 Internal Server Error in 42ms
+
+ActionView::Template::Error (wrong number of arguments (4 for 1..2)):
+    3: <%= form_for(@banner) do |f| %>
+    4:     
+    5: 
+    6:     <%= f.text_field 'width', {}, true, false %>
+    7:     <%= f.text_field 'height', {}, true, false %>
+    8:     <%= f.check_box 'format_type', {}, true, false %>
+    9: 
+  app/views/banners/new.html.erb:6:in `block in _app_views_banners_new_html_erb__642369994780897436_70180200380160'
+  app/views/banners/new.html.erb:3:in `_app_views_banners_new_html_erb__642369994780897436_70180200380160'
+
+
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.9ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (17.3ms)
+
+
+Started GET "/banners/new" for 127.0.0.1 at 2013-08-13 11:27:48 +0900
+Processing by BannersController#new as HTML
+  Rendered banners/new.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 5ms
+
+ActionView::Template::Error (wrong number of arguments (4 for 1..2)):
+    3: <%= form_for(@banner) do |f| %>
+    4:     
+    5: 
+    6:     <%= f.text_field 'width', {}, true, false %>
+    7:     <%= f.text_field 'height', {}, true, false %>
+    8:     <%= f.check_box 'format_type', {}, true, false %>
+    9: 
+  app/views/banners/new.html.erb:6:in `block in _app_views_banners_new_html_erb__642369994780897436_70180194868580'
+  app/views/banners/new.html.erb:3:in `_app_views_banners_new_html_erb__642369994780897436_70180194868580'
+
+
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (15.4ms)
+
+
+Started GET "/banners/new" for 127.0.0.1 at 2013-08-13 11:29:07 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BannersController#new as HTML
+  Rendered banners/new.html.erb within layouts/application (54.7ms)
+Completed 200 OK in 178ms (Views: 148.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/banners.css?body=1" for 127.0.0.1 at 2013-08-13 11:29:08 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-13 11:29:08 +0900
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-13 11:29:08 +0900
+
+
+Started GET "/assets/campaigns.css?body=1" for 127.0.0.1 at 2013-08-13 11:29:08 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-13 11:29:08 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-13 11:29:08 +0900
+
+
+Started GET "/assets/publishers.css?body=1" for 127.0.0.1 at 2013-08-13 11:29:08 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-13 11:29:08 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-13 11:29:08 +0900
+
+
+Started GET "/assets/banners.js?body=1" for 127.0.0.1 at 2013-08-13 11:29:08 +0900
+
+
+Started GET "/assets/campaigns.js?body=1" for 127.0.0.1 at 2013-08-13 11:29:08 +0900
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-13 11:29:08 +0900
+
+
+Started GET "/assets/publishers.js?body=1" for 127.0.0.1 at 2013-08-13 11:29:08 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-13 11:29:08 +0900
+
+
+Started GET "/banners/new_bk" for 127.0.0.1 at 2013-08-13 11:29:21 +0900
+Processing by BannersController#show as HTML
+  Parameters: {"id"=>"new_bk"}
+  [1m[35mBanner Load (0.3ms)[0m  SELECT "banners".* FROM "banners" WHERE "banners"."id" = ? LIMIT 1  [["id", "new_bk"]]
+Completed 404 Not Found in 4ms
+
+ActiveRecord::RecordNotFound (Couldn't find Banner with id=new_bk):
+  app/controllers/banners_controller.rb:67:in `set_banner'
+
+
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (25.6ms)
+
+
+Started GET "/banners/" for 127.0.0.1 at 2013-08-13 11:29:27 +0900
+Processing by BannersController#index as HTML
+  [1m[36mBanner Load (0.3ms)[0m  [1mSELECT "banners".* FROM "banners"[0m
+  Rendered banners/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/campaigns.css?body=1" for 127.0.0.1 at 2013-08-13 11:29:27 +0900
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-13 11:29:27 +0900
+
+
+Started GET "/assets/banners.css?body=1" for 127.0.0.1 at 2013-08-13 11:29:27 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-13 11:29:27 +0900
+
+
+Started GET "/assets/publishers.css?body=1" for 127.0.0.1 at 2013-08-13 11:29:27 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-13 11:29:27 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-13 11:29:27 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-13 11:29:27 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-13 11:29:27 +0900
+
+
+Started GET "/assets/banners.js?body=1" for 127.0.0.1 at 2013-08-13 11:29:27 +0900
+
+
+Started GET "/assets/campaigns.js?body=1" for 127.0.0.1 at 2013-08-13 11:29:27 +0900
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-13 11:29:27 +0900
+
+
+Started GET "/assets/publishers.js?body=1" for 127.0.0.1 at 2013-08-13 11:29:27 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-13 11:29:27 +0900
+
+
+Started GET "/banners/new" for 127.0.0.1 at 2013-08-13 12:10:08 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BannersController#new as HTML
+  Rendered banners/new.html.erb within layouts/application (75.5ms)
+Completed 200 OK in 162ms (Views: 132.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/banners/new_bk" for 127.0.0.1 at 2013-08-13 12:10:17 +0900
+Processing by BannersController#show as HTML
+  Parameters: {"id"=>"new_bk"}
+  [1m[35mBanner Load (0.3ms)[0m  SELECT "banners".* FROM "banners" WHERE "banners"."id" = ? LIMIT 1  [["id", "new_bk"]]
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find Banner with id=new_bk):
+  app/controllers/banners_controller.rb:67:in `set_banner'
+
+
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.5ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (27.8ms)
+
+
+Started GET "/banners/new" for 127.0.0.1 at 2013-08-13 12:11:06 +0900
+Processing by BannersController#new as HTML
+  Rendered banners/_form.html.erb (52.1ms)
+  Rendered banners/new.html.erb within layouts/application (58.0ms)
+Completed 200 OK in 67ms (Views: 65.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-13 12:11:06 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-13 12:11:06 +0900
+
+
+Started GET "/assets/banners.css?body=1" for 127.0.0.1 at 2013-08-13 12:11:06 +0900
+
+
+Started GET "/assets/campaigns.css?body=1" for 127.0.0.1 at 2013-08-13 12:11:06 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-13 12:11:06 +0900
+
+
+Started GET "/assets/publishers.css?body=1" for 127.0.0.1 at 2013-08-13 12:11:06 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-13 12:11:06 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-13 12:11:06 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-13 12:11:07 +0900
+
+
+Started GET "/assets/banners.js?body=1" for 127.0.0.1 at 2013-08-13 12:11:07 +0900
+
+
+Started GET "/assets/campaigns.js?body=1" for 127.0.0.1 at 2013-08-13 12:11:07 +0900
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-13 12:11:07 +0900
+
+
+Started GET "/assets/publishers.js?body=1" for 127.0.0.1 at 2013-08-13 12:11:07 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-13 12:11:07 +0900
+
+
+Started GET "/banners" for 127.0.0.1 at 2013-08-13 12:32:04 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BannersController#index as HTML
+  [1m[35mBanner Load (0.1ms)[0m  SELECT "banners".* FROM "banners"
+  Rendered banners/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 126ms (Views: 94.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/assets/banners.css?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/assets/campaigns.css?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/assets/publishers.css?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/assets/banners.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/assets/campaigns.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/assets/publishers.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/banners/new" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+Processing by BannersController#new as HTML
+  Rendered banners/_form.html.erb (126.6ms)
+  Rendered banners/new.html.erb within layouts/application (133.0ms)
+Completed 200 OK in 144ms (Views: 141.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/assets/banners.css?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/assets/publishers.css?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/assets/campaigns.css?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/assets/banners.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/assets/campaigns.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/assets/publishers.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:05 +0900
+
+
+Started GET "/banners/new" for 127.0.0.1 at 2013-08-13 12:32:08 +0900
+Processing by BannersController#new as HTML
+  Rendered banners/_form.html.erb (7.9ms)
+  Rendered banners/new.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 18ms (Views: 16.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/clients" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+Processing by ClientsController#index as HTML
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients"[0m
+  Rendered clients/index.html.erb within layouts/application (43.4ms)
+Completed 200 OK in 56ms (Views: 50.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/banners.css?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/assets/publishers.css?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/assets/campaigns.css?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/assets/banners.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/assets/campaigns.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/assets/publishers.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/clients/1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+Processing by ClientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mClient Load (0.4ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered clients/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 17ms (Views: 13.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/assets/campaigns.css?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/assets/banners.css?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/assets/publishers.css?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/assets/banners.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/assets/campaigns.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/assets/publishers.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-13 12:32:17 +0900
+
+
+Started GET "/clients/1" for 127.0.0.1 at 2013-08-13 12:35:02 +0900
+Processing by ClientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClient Load (0.3ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered clients/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 14ms (Views: 11.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/clients" for 127.0.0.1 at 2013-08-13 12:35:02 +0900
+Processing by ClientsController#index as HTML
+  [1m[35mClient Load (0.2ms)[0m  SELECT "clients".* FROM "clients"
+  Rendered clients/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-13 12:35:02 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-13 12:35:02 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-13 12:35:02 +0900
+
+
+Started GET "/assets/campaigns.css?body=1" for 127.0.0.1 at 2013-08-13 12:35:02 +0900
+
+
+Started GET "/assets/publishers.css?body=1" for 127.0.0.1 at 2013-08-13 12:35:02 +0900
+
+
+Started GET "/assets/banners.css?body=1" for 127.0.0.1 at 2013-08-13 12:35:02 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-13 12:35:02 +0900
+
+
+Started GET "/assets/banners.js?body=1" for 127.0.0.1 at 2013-08-13 12:35:02 +0900
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-13 12:35:02 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-13 12:35:02 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-13 12:35:02 +0900
+
+
+Started GET "/assets/campaigns.js?body=1" for 127.0.0.1 at 2013-08-13 12:35:02 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-13 12:35:02 +0900
+
+
+Started GET "/assets/publishers.js?body=1" for 127.0.0.1 at 2013-08-13 12:35:02 +0900
+
+
+Started GET "/clients/1" for 127.0.0.1 at 2013-08-13 15:08:02 +0900
+Processing by ClientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered clients/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/campaigns.css?body=1" for 127.0.0.1 at 2013-08-13 15:08:02 +0900
+
+
+Started GET "/assets/publishers.css?body=1" for 127.0.0.1 at 2013-08-13 15:08:02 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-13 15:08:02 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-13 15:08:02 +0900
+
+
+Started GET "/assets/banners.css?body=1" for 127.0.0.1 at 2013-08-13 15:08:02 +0900
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-13 15:08:02 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-13 15:08:02 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-13 15:08:02 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-13 15:08:02 +0900
+
+
+Started GET "/assets/banners.js?body=1" for 127.0.0.1 at 2013-08-13 15:08:02 +0900
+
+
+Started GET "/assets/campaigns.js?body=1" for 127.0.0.1 at 2013-08-13 15:08:02 +0900
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-13 15:08:02 +0900
+
+
+Started GET "/assets/publishers.js?body=1" for 127.0.0.1 at 2013-08-13 15:08:02 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-13 15:08:02 +0900
+
+
+Started GET "/banners/new" for 127.0.0.1 at 2013-08-13 15:08:03 +0900
+Processing by BannersController#new as HTML
+  Rendered banners/_form.html.erb (9.2ms)
+  Rendered banners/new.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 20ms (Views: 18.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-13 15:08:03 +0900
+
+
+Started GET "/assets/campaigns.css?body=1" for 127.0.0.1 at 2013-08-13 15:08:03 +0900
+
+
+Started GET "/assets/banners.css?body=1" for 127.0.0.1 at 2013-08-13 15:08:03 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-13 15:08:03 +0900
+
+
+Started GET "/assets/publishers.css?body=1" for 127.0.0.1 at 2013-08-13 15:08:03 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-13 15:08:03 +0900
+
+
+Started GET "/assets/banners.js?body=1" for 127.0.0.1 at 2013-08-13 15:08:03 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-13 15:08:03 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-13 15:08:03 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-13 15:08:03 +0900
+
+
+Started GET "/assets/campaigns.js?body=1" for 127.0.0.1 at 2013-08-13 15:08:03 +0900
+
+
+Started GET "/assets/publishers.js?body=1" for 127.0.0.1 at 2013-08-13 15:08:03 +0900
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-13 15:08:03 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-13 15:08:03 +0900
+
+
+Started GET "/banners" for 127.0.0.1 at 2013-08-13 17:12:40 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BannersController#index as HTML
+  [1m[35mBanner Load (0.7ms)[0m  SELECT "banners".* FROM "banners"
+  Rendered banners/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 164ms (Views: 130.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/campaigns.css?body=1" for 127.0.0.1 at 2013-08-13 17:12:41 +0900
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-13 17:12:41 +0900
+
+
+Started GET "/assets/publishers.css?body=1" for 127.0.0.1 at 2013-08-13 17:12:41 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-13 17:12:41 +0900
+
+
+Started GET "/assets/banners.css?body=1" for 127.0.0.1 at 2013-08-13 17:12:41 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-13 17:12:41 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-13 17:12:41 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-13 17:12:41 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-13 17:12:41 +0900
+
+
+Started GET "/assets/banners.js?body=1" for 127.0.0.1 at 2013-08-13 17:12:41 +0900
+
+
+Started GET "/assets/campaigns.js?body=1" for 127.0.0.1 at 2013-08-13 17:12:41 +0900
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-13 17:12:41 +0900
+
+
+Started GET "/assets/publishers.js?body=1" for 127.0.0.1 at 2013-08-13 17:12:41 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-13 17:12:41 +0900
+
+
+Started GET "/banners/new" for 127.0.0.1 at 2013-08-13 17:12:41 +0900
+Processing by BannersController#new as HTML
+  Rendered banners/_form.html.erb (69.5ms)
+  Rendered banners/new.html.erb within layouts/application (114.7ms)
+Completed 200 OK in 125ms (Views: 122.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-13 17:12:41 +0900
+
+
+Started GET "/assets/publishers.css?body=1" for 127.0.0.1 at 2013-08-13 17:12:41 +0900
+
+
+Started GET "/assets/banners.css?body=1" for 127.0.0.1 at 2013-08-13 17:12:41 +0900
+
+
+Started GET "/assets/campaigns.css?body=1" for 127.0.0.1 at 2013-08-13 17:12:41 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-13 17:12:41 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-13 17:12:41 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-13 17:12:41 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-13 17:12:42 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-13 17:12:42 +0900
+
+
+Started GET "/assets/banners.js?body=1" for 127.0.0.1 at 2013-08-13 17:12:42 +0900
+
+
+Started GET "/assets/campaigns.js?body=1" for 127.0.0.1 at 2013-08-13 17:12:42 +0900
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-13 17:12:42 +0900
+
+
+Started GET "/assets/publishers.js?body=1" for 127.0.0.1 at 2013-08-13 17:12:42 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-13 17:12:42 +0900
+
+
+Started GET "/banners/new" for 127.0.0.1 at 2013-08-13 17:12:44 +0900
+Processing by BannersController#new as HTML
+  Rendered banners/_form.html.erb (8.4ms)
+  Rendered banners/new.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/banners" for 127.0.0.1 at 2013-08-13 17:13:20 +0900
+Processing by BannersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RsCjmds0jsOgsTrPWoAM7/ZeeDr/shTjNg1mbNn19W4=", "banner"=>{"campaign_id"=>"2", "width"=>"2", "height"=>"2", "banner_type"=>"2", "file_name"=>"format type test", "format_type"=>"5", "image_url"=>"hoge", "click_target"=>"hoge", "html_tag"=>"hogew", "ad_type"=>"1"}, "commit"=>"Create Banner"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (6.9ms)[0m  INSERT INTO "banners" ("ad_type", "banner_type", "campaign_id", "click_target", "created_at", "file_name", "format_type", "height", "html_tag", "image_url", "updated_at", "width") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["ad_type", 1], ["banner_type", 2], ["campaign_id", 2], ["click_target", "hoge"], ["created_at", Tue, 13 Aug 2013 08:13:20 UTC +00:00], ["file_name", "format type test"], ["format_type", 5], ["height", 2], ["html_tag", "hogew"], ["image_url", "hoge"], ["updated_at", Tue, 13 Aug 2013 08:13:20 UTC +00:00], ["width", 2]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/banners/1
+Completed 302 Found in 18ms (ActiveRecord: 8.3ms)
+
+
+Started GET "/banners/1" for 127.0.0.1 at 2013-08-13 17:13:20 +0900
+Processing by BannersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBanner Load (0.4ms)[0m  SELECT "banners".* FROM "banners" WHERE "banners"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered banners/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 21ms (Views: 15.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-13 17:13:20 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-13 17:13:20 +0900
+
+
+Started GET "/assets/banners.css?body=1" for 127.0.0.1 at 2013-08-13 17:13:20 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-13 17:13:20 +0900
+
+
+Started GET "/assets/publishers.css?body=1" for 127.0.0.1 at 2013-08-13 17:13:20 +0900
+
+
+Started GET "/assets/campaigns.css?body=1" for 127.0.0.1 at 2013-08-13 17:13:20 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-13 17:13:20 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-13 17:13:20 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-13 17:13:20 +0900
+
+
+Started GET "/assets/banners.js?body=1" for 127.0.0.1 at 2013-08-13 17:13:20 +0900
+
+
+Started GET "/assets/publishers.js?body=1" for 127.0.0.1 at 2013-08-13 17:13:20 +0900
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-13 17:13:20 +0900
+
+
+Started GET "/assets/campaigns.js?body=1" for 127.0.0.1 at 2013-08-13 17:13:20 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-13 17:13:20 +0900
+
+
+Started GET "/banners" for 127.0.0.1 at 2013-08-13 17:13:22 +0900
+Processing by BannersController#index as HTML
+  [1m[36mBanner Load (0.2ms)[0m  [1mSELECT "banners".* FROM "banners"[0m
+  Rendered banners/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-08-14 14:53:01 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (2.3ms)
+Completed 200 OK in 40ms (Views: 12.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2013-08-14 14:53:02 +0900
+
+ActionController::RoutingError (No route matches [GET] "/users/new"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.9ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (10.1ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (77.9ms)
+
+
+Started GET "/banners" for 127.0.0.1 at 2013-08-14 14:53:08 +0900
+Processing by BannersController#index as HTML
+  [1m[35mBanner Load (0.7ms)[0m  SELECT "banners".* FROM "banners"
+  Rendered banners/index.html.erb within layouts/application (59.2ms)
+Completed 500 Internal Server Error in 196ms
+
+NameError (undefined local variable or method `convert_id_for_display' for #<BannersController:0x007fe60dfaa618>):
+  activesupport (4.0.0) lib/active_support/callbacks.rb:415:in `_run__3215298491941398141__process_action__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:655:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.0) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__3717227080646167327__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.4ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (37.5ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (72.3ms)
+
+
+Started GET "/banners" for 127.0.0.1 at 2013-08-14 14:53:08 +0900
+Processing by BannersController#index as HTML
+  [1m[36mBanner Load (0.2ms)[0m  [1mSELECT "banners".* FROM "banners"[0m
+  Rendered banners/index.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 37ms
+
+NameError (undefined local variable or method `convert_id_for_display' for #<BannersController:0x007fe60d977020>):
+  activesupport (4.0.0) lib/active_support/callbacks.rb:415:in `_run__3215298491941398141__process_action__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:655:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.0) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__3717227080646167327__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.4ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.8ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.1ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (40.3ms)
+
+
+Started GET "/banners/new" for 127.0.0.1 at 2013-08-14 14:53:08 +0900
+Processing by BannersController#new as HTML
+  Rendered banners/_form.html.erb (35.5ms)
+  Rendered banners/new.html.erb within layouts/application (39.5ms)
+Completed 200 OK in 53ms (Views: 51.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/banners.css?body=1" for 127.0.0.1 at 2013-08-14 14:53:08 +0900
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-14 14:53:08 +0900
+
+
+Started GET "/assets/publishers.css?body=1" for 127.0.0.1 at 2013-08-14 14:53:09 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-14 14:53:09 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-14 14:53:09 +0900
+
+
+Started GET "/assets/campaigns.css?body=1" for 127.0.0.1 at 2013-08-14 14:53:09 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-14 14:53:09 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-14 14:53:09 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-14 14:53:09 +0900
+
+
+Started GET "/assets/banners.js?body=1" for 127.0.0.1 at 2013-08-14 14:53:09 +0900
+
+
+Started GET "/assets/campaigns.js?body=1" for 127.0.0.1 at 2013-08-14 14:53:09 +0900
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-14 14:53:09 +0900
+
+
+Started GET "/assets/publishers.js?body=1" for 127.0.0.1 at 2013-08-14 14:53:09 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-14 14:53:09 +0900
+
+
+Started GET "/banners" for 127.0.0.1 at 2013-08-14 14:54:16 +0900
+Processing by BannersController#index as HTML
+  [1m[35mBanner Load (0.2ms)[0m  SELECT "banners".* FROM "banners"
+  Rendered banners/index.html.erb within layouts/application (38.7ms)
+Completed 200 OK in 49ms (Views: 44.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-14 14:54:17 +0900
+
+
+Started GET "/assets/banners.css?body=1" for 127.0.0.1 at 2013-08-14 14:54:17 +0900
+
+
+Started GET "/assets/campaigns.css?body=1" for 127.0.0.1 at 2013-08-14 14:54:17 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-14 14:54:17 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-14 14:54:17 +0900
+
+
+Started GET "/assets/publishers.css?body=1" for 127.0.0.1 at 2013-08-14 14:54:17 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-14 14:54:17 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-14 14:54:17 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-14 14:54:17 +0900
+
+
+Started GET "/assets/banners.js?body=1" for 127.0.0.1 at 2013-08-14 14:54:17 +0900
+
+
+Started GET "/assets/campaigns.js?body=1" for 127.0.0.1 at 2013-08-14 14:54:17 +0900
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-14 14:54:17 +0900
+
+
+Started GET "/assets/publishers.js?body=1" for 127.0.0.1 at 2013-08-14 14:54:17 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-14 14:54:17 +0900
+
+
+Started GET "/" for 127.0.0.1 at 2013-08-29 15:40:57 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (3.8ms)
+Completed 200 OK in 63ms (Views: 18.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-08-29 15:41:02 +0900
+
+ActionController::RoutingError (No route matches [GET] "/users"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.5ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (7.5ms)
+  Rendered /Users/ootoriyuusuke/.rbenv/versions/2.0.0-p0/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (81.1ms)
+
+
+Started GET "/banners" for 127.0.0.1 at 2013-08-29 15:41:11 +0900
+Processing by BannersController#index as HTML
+  [1m[35mBanner Load (0.7ms)[0m  SELECT "banners".* FROM "banners"
+  Rendered banners/index.html.erb within layouts/application (42.9ms)
+Completed 200 OK in 166ms (Views: 160.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-29 15:41:11 +0900
+
+
+Started GET "/assets/banners.css?body=1" for 127.0.0.1 at 2013-08-29 15:41:11 +0900
+
+
+Started GET "/assets/campaigns.css?body=1" for 127.0.0.1 at 2013-08-29 15:41:11 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-29 15:41:11 +0900
+
+
+Started GET "/assets/publishers.css?body=1" for 127.0.0.1 at 2013-08-29 15:41:11 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-29 15:41:11 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-29 15:41:11 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-29 15:41:11 +0900
+
+
+Started GET "/assets/banners.js?body=1" for 127.0.0.1 at 2013-08-29 15:41:11 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-29 15:41:11 +0900
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-29 15:41:11 +0900
+
+
+Started GET "/assets/campaigns.js?body=1" for 127.0.0.1 at 2013-08-29 15:41:11 +0900
+
+
+Started GET "/assets/publishers.js?body=1" for 127.0.0.1 at 2013-08-29 15:41:11 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-29 15:41:11 +0900
+
+
+Started GET "/banners/1" for 127.0.0.1 at 2013-08-29 15:42:51 +0900
+Processing by BannersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBanner Load (0.3ms)[0m  [1mSELECT "banners".* FROM "banners" WHERE "banners"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered banners/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 11ms (Views: 8.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/banners/1/edit" for 127.0.0.1 at 2013-08-29 15:42:54 +0900
+Processing by BannersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBanner Load (0.2ms)[0m  SELECT "banners".* FROM "banners" WHERE "banners"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered banners/_form.html.erb (28.5ms)
+  Rendered banners/edit.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 43ms (Views: 41.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/banners/1/edit" for 127.0.0.1 at 2013-08-29 15:46:10 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BannersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mBanner Load (0.2ms)[0m  SELECT "banners".* FROM "banners" WHERE "banners"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered banners/_form.html.erb (21.3ms)
+  Rendered banners/edit.html.erb within layouts/application (26.1ms)
+Completed 200 OK in 213ms (Views: 149.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-29 15:46:10 +0900
+
+
+Started GET "/assets/banners.css?body=1" for 127.0.0.1 at 2013-08-29 15:46:10 +0900
+
+
+Started GET "/assets/publishers.css?body=1" for 127.0.0.1 at 2013-08-29 15:46:10 +0900
+
+
+Started GET "/assets/campaigns.css?body=1" for 127.0.0.1 at 2013-08-29 15:46:10 +0900
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-08-29 15:46:10 +0900
+
+
+Started GET "/assets/clients.css?body=1" for 127.0.0.1 at 2013-08-29 15:46:10 +0900
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-29 15:46:10 +0900
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-29 15:46:10 +0900
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-08-29 15:46:10 +0900
+
+
+Started GET "/assets/banners.js?body=1" for 127.0.0.1 at 2013-08-29 15:46:10 +0900
+
+
+Started GET "/assets/campaigns.js?body=1" for 127.0.0.1 at 2013-08-29 15:46:10 +0900
+
+
+Started GET "/assets/clients.js?body=1" for 127.0.0.1 at 2013-08-29 15:46:10 +0900
+
+
+Started GET "/assets/publishers.js?body=1" for 127.0.0.1 at 2013-08-29 15:46:10 +0900
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-29 15:46:10 +0900

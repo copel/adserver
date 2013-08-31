@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  campaign_name: MyString
+  client_id: 
+  revenue_type: 1
+  campaign_start_date: 2013-08-12 18:31:14
+  campaign_end_date: 2013-08-12 18:31:14
+  total_target_view: 1
+  total_target_click: 1
+  total_target_convertion: 1
+  user_team_cap: 1
+  user_team_daily_cap: 
+  user_hourly_cap: 1
+  user_cap_reset_time: 1
+  comment: MyString
+
+two:
+  campaign_name: MyString
+  client_id: 
+  revenue_type: 1
+  campaign_start_date: 2013-08-12 18:31:14
+  campaign_end_date: 2013-08-12 18:31:14
+  total_target_view: 1
+  total_target_click: 1
+  total_target_convertion: 1
+  user_team_cap: 1
+  user_team_daily_cap: 
+  user_hourly_cap: 1
+  user_cap_reset_time: 1
+  comment: MyString

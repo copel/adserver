@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Campaign:</strong>
+  <%= @banner.campaign_id %>
+</p>
+
+<p>
+  <strong>Width:</strong>
+  <%= @banner.width %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @banner.height %>
+</p>
+
+<p>
+  <strong>Banner type:</strong>
+  <%= @banner.banner_type %>
+</p>
+
+<p>
+  <strong>File name:</strong>
+  <%= @banner.file_name %>
+</p>
+
+<p>
+  <strong>Format type:</strong>
+  <%= @banner.format_type %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @banner.image_url %>
+</p>
+
+<p>
+  <strong>Click target:</strong>
+  <%= @banner.click_target %>
+</p>
+
+<p>
+  <strong>Html tag:</strong>
+  <%= @banner.html_tag %>
+</p>
+
+<p>
+  <strong>Ad type:</strong>
+  <%= @banner.ad_type %>
+</p>
+
+<%= link_to 'Edit', edit_banner_path(@banner) %> |
+<%= link_to 'Back', banners_path %>
