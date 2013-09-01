@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  publisher_id: 1
+  name: MyString
+  category: 1
+  type: 1
+  width: 
+  height: 1
+  position: 1
+  floorprice: 1
+  block_domain: MyString
+
+two:
+  publisher_id: 1
+  name: MyString
+  category: 1
+  type: 1
+  width: 
+  height: 1
+  position: 1
+  floorprice: 1
+  block_domain: MyString

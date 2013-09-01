@@ -1,4 +1,6 @@
 Railsgirl::Application.routes.draw do
+  resources :zones
+
   resources :banners
 
   resources :campaigns

@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>zone id:</strong>
+  <%= @zone.id %>
+</p>
+
+<p>
+  <strong>publisher name:</strong>
+  <%= @publisher.publisher_name %>
+</p>
+
+<p>
+  <strong>name:</strong>
+  <%= @zone.name %>
+</p>
+
+<p>
+  <strong>category:</strong>
+  <%= @zone.category %>
+</p>
+
+<p>
+  <strong>Zone type:</strong>
+  <%= @zone.zone_type %>
+</p>
+
+<p>
+  <strong>width:</strong>
+  <%= @zone.width %>
+</p>
+
+<p>
+  <strong>height:</strong>
+  <%= @zone.height %>
+</p>
+
+<p>
+  <strong>position:</strong>
+  <%= @zone.position %>
+</p>
+
+<p>
+  <strong>block_domain:</strong>
+  <%= @zone.block_domain %>
+</p>
+
+<%= link_to 'Edit', edit_zone_path(@zone) %> |
+<%= link_to 'Back', zones_path %>

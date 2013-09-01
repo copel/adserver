@@ -1,0 +1,63 @@
+<h1>new zone</h1>
+
+<%= form_for(@zone) do |f| %>
+  <% if @zone.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@publisher.errors.count, "error") %> prohibited this zone from being saved:</h2>
+
+      <ul>
+      <% @zone.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label :publisher_name %><br>
+    <%= @publisher.publisher_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :publisher_id %><br>
+    <%= f.number_field :publisher_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :zone_name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category %><br>
+    <%= f.number_field :category %>
+  </div>
+  <div class="field">
+    <%= f.label :zone_type %><br>
+    <%= f.number_field :zone_type %>
+  </div>
+  <div class="field">
+    <%= f.label :width %><br>
+    <%= f.text_field :width %>
+  </div>
+  <div class="field">
+    <%= f.label :height %><br>
+    <%= f.text_field :height %>
+  </div>
+  <div class="field">
+    <%= f.label :floorprice %><br>
+    <%= f.number_field :floorprice %>
+  </div>
+  <div class="field">
+    <%= f.label :block_domain %><br>
+    <%= f.text_field :block_domain %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', publishers_path %>
+

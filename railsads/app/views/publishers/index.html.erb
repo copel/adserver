@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Publisher id</th>
       <th>Publisher name</th>
       <th>Website</th>
       <th>Email</th>
@@ -17,6 +18,7 @@
   <tbody>
     <% @publishers.each do |publisher| %>
       <tr>
+        <td><%= publisher.id %></td>
         <td><%= publisher.publisher_name %></td>
         <td><%= publisher.website %></td>
         <td><%= publisher.email %></td>
@@ -32,4 +34,6 @@
 
 <br>
 
-<%= link_to 'New Publisher', new_publisher_path %>
+<%= link_to 'New Publisher', new_publisher_path %> |
+<%= link_to 'See all zones', zones_path %>
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130813021352) do
+ActiveRecord::Schema.define(version: 20130831192222) do
 
   create_table "banners", force: true do |t|
     t.integer  "campaign_id"
@@ -65,6 +65,27 @@ ActiveRecord::Schema.define(version: 20130813021352) do
     t.string   "email"
     t.string   "contact"
     t.integer  "publisher_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rtb_enables", force: true do |t|
+    t.integer  "zone_id"
+    t.integer  "dsp_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "zones", force: true do |t|
+    t.integer  "publisher_id"
+    t.string   "name"
+    t.integer  "category"
+    t.integer  "zone_type"
+    t.integer  "width"
+    t.integer  "height"
+    t.integer  "position"
+    t.integer  "floorprice"
+    t.string   "block_domain"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,38 @@
+<h1>Zones#index</h1>
+<table>
+  <thead>
+    <tr>
+      <th>zone_id</th>
+      <th>publisher</th>
+      <th>name</th>
+      <th>category</th>
+      <th>width</th>
+      <th>height</th>
+      <th>position</th>
+      <th>floorprice</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @zones.each do |z| %>
+      <tr>
+        <td><%= z.id %></td>
+        <td><%= z.publisher_name %></td>
+        <td><%= z.name %></td>
+        <td><%= z.category %></td>
+        <td><%= z.width %></td>
+        <td><%= z.height %></td>
+        <td><%= z.position %></td>
+        <td><%= z.floorprice %></td>
+        <td><%= link_to 'Show', z %></td>
+        <td><%= link_to 'Destroy', z, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'back to publisher list', publishers_path %>
+
+

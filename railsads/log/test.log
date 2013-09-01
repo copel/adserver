@@ -1,0 +1,17 @@
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "banners" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "campaign_id" integer, "width" integer, "height" integer, "banner_type" integer, "file_name" varchar(255), "format_type" integer, "image_url" varchar(255), "click_target" varchar(255), "html_tag" text, "ad_type" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.7ms)[0m  CREATE TABLE "campaigns" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "campaign_name" varchar(255), "client_id" integer, "revenue_type" integer, "campaign_start_date" datetime, "campaign_end_date" datetime, "total_target_view" integer, "total_target_click" integer, "total_target_convertion" integer, "user_team_cap" integer, "user_team_daily_cap" integer, "user_hourly_cap" integer, "user_cap_reset_time" integer, "comment" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "clients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_type" integer, "client_name" varchar(255), "contact" varchar(255), "email" varchar(255), "report" boolean, "report_interval" datetime, "report_deactive" boolean, "comment" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "publishers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "publisher_name" varchar(255), "website" varchar(255), "email" varchar(255), "contact" varchar(255), "publisher_type" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130813021352')
+  [1m[36m (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130812064446')[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130812065339')
+  [1m[36m (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130812093114')[0m
+  [1m[35m (1.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130812094049')
+  [1m[36m (1.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130813014429')[0m
+  [1m[35m (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130813015213')
+  [1m[36m (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130813020408')[0m
+  [1m[35m (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130813020646')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m

@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Publisher id:</strong>
+  <%= @publisher.id %>
+</p>
+
+<p>
   <strong>Publisher name:</strong>
   <%= @publisher.publisher_name %>
 </p>
@@ -26,4 +31,5 @@
 </p>
 
 <%= link_to 'Edit', edit_publisher_path(@publisher) %> |
-<%= link_to 'Back', publishers_path %>
+<%= link_to 'Back', publishers_path %> |
+<%= link_to 'Create new zone', new_zone_path(@publisher) %> |
